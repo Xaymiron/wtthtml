@@ -1,0 +1,102 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #F5F5F2;
+    color: #1F2933;
+    padding: 5px;
+    margin: 15px;
+    font-size: 150%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family:Arial, sans-serif;
+    font-size: 1.95em;
+}
+
+h2{
+    text-align:center;
+  }
+
+li{
+    margin-top: 20px;
+}
+
+img{
+    border: 5px solid white;
+    border-radius: 35px;
+    width: 100%;
+  }
+
+.label{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* ==========================================================
+   1. MOBILE VIEW (BASE STYLES)
+   Approach: Mobile-First (No media queries for mobile)
+   ========================================================== */
+.grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    text-align: center;
+}
+
+/* ==========================================================
+   2. TABLET VIEW
+   Trigger: 772px 
+   Constraint: Do not repeat unnecessary rules / No max-width
+   ========================================================== */
+@media screen and (min-width: 772px) {
+    .grid{
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+    
+    .grid figure:nth-child(9n){
+        grid-column: 1 / span 2;
+    }
+    .grid img{
+        border-radius: 50%;
+    }
+}
+
+
+/* ==========================================================
+   3. LARGE SCREEN VIEW
+   Trigger: 992px
+   Constraint: Do not repeat unnecessary rules / No max-width
+   ========================================================== */
+@media screen and (min-width: 992px){
+    .grid figure:nth-child(3n){
+        grid-column: 1 / span 2;
+    }
+    .grid img{
+        border-radius: 0;
+    }
+}
+
+
+
+/* ==========================================================
+   4. ACCESSIBILITY & USER PREFERENCES
+   ========================================================== */
+@media (prefers-reduced-motion: reduce) {
+    html{
+        scroll-behavior: auto;
+    }
+}
+@media (prefers-color-scheme: dark){
+    img{
+    border-color: #1E293B;
+    }
+    body {
+    background-color: #0F172A;
+    color: #E5E7EB;
+    }
+}
